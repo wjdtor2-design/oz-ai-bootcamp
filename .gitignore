@@ -5,6 +5,10 @@ __pycache__/
 .env.*
 .venv/
 venv/
+.api/
+*/.venv/
+*/venv/
+*/.api/
 
 # ---- Node ----
 node_modules/
