@@ -22,3 +22,5 @@ node_modules/
 *.pth
 *.gguf
 models/
+
+Fastapi/test.db
