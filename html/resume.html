@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 인터널 CSS(Internal CSS) -->
+    <style>
+        .contents {
+            text-align: center;
+        }
+
+        .date{
+            font-size: small;
+            text-align: end;
+            margin-top: 5vh;
+        }
+        
+        #title {
+            font-size: x-large;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 5vh;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 2vw;
+            justify-content: center;
+            margin-top: 2vh;
+            font-size: small;
+            color: gray;
+        }
+
+        .github-link {
+            display: inline-block;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        #description {
+            font-size: medium;
+            margin-top: 2vh;
+        }
+
+        #Copyright {
+            font-size: x-small;
+            margin-top: 60vh;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 인라인 스타일(Inline Style)-->
+    <div class="date">
+        2026. 02. 10
+    </div>
+    <div class="contents">
+        <header id="title">Gwak JI-E</header>
+
+        <div class="contact-row">
+            <span>wjdtor2@gmail.com</span>
+            <span>|</span>
+            <span>010-1234-5678</span>
+            <span>|</span>
+
+            <!-- GitHub -->
+            <a class="github-link" href="https://github.com/wjdtor2-design">
+                <i class="fa-brands fa-github-alt"></i>GitHub
+            </a>
+        </div>
+
+        
+
+        <main id="description">A High-Paying Company</main>
+        <footer id="Copyright">Copyright &#169; Gwak JI-E</footer>
+    </div>
+</body>
+
+</html>

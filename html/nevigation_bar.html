@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <style>
+        body {
+            margin : 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .navbar {
+            background-color: beige;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+        }
+
+        .navbar__logo {
+            font-size: 1.2rem;
+        }
+
+        .navbar__menu {
+            list-style: none;
+            padding: 0;
+            display: flex; 
+        }
+        
+        .navbar__menu li {
+            padding: 8px 12px;
+        }
+
+        .navbar__menu li:hover {
+            background-color: white;
+            border-radius: 8px;
+        }
+
+
+        .navbar__icons {
+            list-style: none;
+            padding:0;
+            display: flex;
+            gap: 4px;
+        }
+
+        @media (max-width: 400px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 16px;
+            }
+
+            .navbar__menu {
+                flex-direction: column;
+                width: 100%;
+                text-align: center
+            }
+
+            .navbar__icons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <i class="fa-brands fa-dev"></i>
+            <a href="#">GWAK-JE</a>
+        </div>
+
+        <ul class="navbar__menu">
+            <li><a href="">소개글</a></li>
+            <li><a href="resume.html">이력서</a></li>
+            <li><a href="">갤러리</a></li>
+        </ul>
+
+        <ul class="navbar__icons">
+            <li><i class="fa-brands fa-github"></i></li>
+            <li><i class="fa-brands fa-linkedin"></i></li>
+        </ul>
+    </nav>
+</body>
+
+</html>
