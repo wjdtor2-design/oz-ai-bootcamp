@@ -5,6 +5,11 @@ from database import SessionFactory
 
 app = FastAPI()
 
+
+@app.get("/")
+async def root_handler():
+    return {"ping": {"pong123"}}
+
 @app.get("/users")
 async def get_users_handler():
     with SessionFactory() as session:
