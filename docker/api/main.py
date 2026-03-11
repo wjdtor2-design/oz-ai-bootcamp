@@ -3,6 +3,7 @@ import uuid
 
 from redis import asyncio as aredis
 from fastapi import FastAPI, Body
+from fastapi.responses import StreamingResponse
 
 
 redis_client = aredis.from_url("redis://redis:6379", decode_responses=True)
@@ -26,9 +27,16 @@ async def chat_handler(
     await redis_client.lpush("inference_queue", json.dumps(job))
 
     # [4] 답변 생성 결과를 돌려받기
-    result = None
-    async for message in pubsub.listen():
-        if message["type"] == "message":
-            result = message["data"]
-            break
-    return {"result": result}
+    async def event_generator():
+        async for message in pubsub.listen():
+            if message["type"] == "message":
+                data = message["data"]
+                if data == "[DONE]":
+                    break
+                yield data
+
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+    )

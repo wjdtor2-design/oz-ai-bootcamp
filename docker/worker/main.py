@@ -30,8 +30,9 @@ def create_response(question: str):
         ],
         max_tokens=256,
         temperature=0.7,
+        stream=True,
     )
-    return response["choices"][0]["message"]["content"]
+    return response
 
 def run():
     while True:
@@ -40,11 +41,16 @@ def run():
         job: dict = json.loads(job_data)
 
         # [2] 추론
-        answer = create_response(question=job["question"])
+        stream = create_response(question=job["question"])
 
-        # [3] 결과를 API 서버로 반환
+        # [3] 결과를 API 서버로 publish
         channel = f"result:{job["id"]}"
-        redis_client.publish(channel, answer)
+        for chunk in stream:
+            token = chunk["choices"][0]["delta"].get("content")
+            if token:
+                redis_client.publish(channel, token)
+
+        redis_client.publish(channel, "[DONE]")
     
 
 # python main.py를 직접 실행되었을 때만, run()을 호출
